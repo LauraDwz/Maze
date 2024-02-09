@@ -13,7 +13,7 @@ Projet de terminale. Jeu de labyrinthe
 - Rendre le jeu multijoueur
 - Réécrire unionfind
 
-
+Lien du TP : https://github.com/NSI-T-2024/Tale_NSI_2024/tree/master/projets/maze?authuser=0#compl%C3%A9ments
 
 
 
