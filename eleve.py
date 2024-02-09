@@ -70,7 +70,7 @@ class Maze:
         self.cells = self._init_cells()
         self.union_find = UnionFind(self.cells)
         self.walls = self._init_walls()
-        self.take_off_walls()
+        self.generate()
         print(self.__repr__())
 
     def _init_cells(self) -> list:
@@ -123,7 +123,7 @@ class Maze:
     def __repr__(self):
         return self._formatted_string().format(*[" "] * self.width * self.height)
     
-    def take_off_walls(self):
+    def generate(self):
         while self.union_find.number_of_classes()>1:
             index = randint(0, len(self.walls)-1)
             wall = self.walls[index]
