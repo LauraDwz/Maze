@@ -2,10 +2,11 @@
 Projet de terminale. Jeu de labyrinthe
 
 ## Objectifs initiaux du projet : 
-- Créér des labyrinthes parfaits à l'aide de Krutzsal
+- Créér des labyrinthes parfaits à l'aide de Krusksal
 - Les afficher dans la console
 - Les résoudre
 - Afficher la réponse
+Remplis !
 
 ## Objectifs complémentaires
 - Créer une interface graphique avec Pygame
