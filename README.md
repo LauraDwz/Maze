@@ -6,7 +6,6 @@ Projet de terminale. Jeu de labyrinthe
 - Les afficher dans la console
 - Les résoudre
 - Afficher la réponse
-Remplis !
 
 ## Objectifs complémentaires
 - Créer une interface graphique avec Pygame
