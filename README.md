@@ -7,11 +7,16 @@ Projet de terminale. Jeu de labyrinthe
 - Les résoudre
 - Afficher la réponse
 
+LES OBJECTIFS INITIAUX ONT ÉTÉ REMPLIS ET LES ALGORITHMES SONT DANS LE DOSSIER ALGO.  
+
 ## Objectifs complémentaires
-- Créer une interface graphique avec Pygame
+- Créer une interface graphique
 - En faire un jeu avec un bonhomme qui peut se déplacer
 - Rendre le jeu multijoueur
 - Réécrire unionfind
+
+
+
 
 Lien du TP : https://github.com/NSI-T-2024/Tale_NSI_2024/tree/master/projets/maze?authuser=0#compl%C3%A9ments
 
