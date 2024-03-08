@@ -18,7 +18,7 @@ class Maze:
         """
         self.width = width
         self.height = height
-        self.cells = self._init_cells()
+        self.cells = sorted(self._init_cells())
         self.union_find = UnionFind(self.cells)
         self.graph = Graph(self)
         self.walls = self._init_walls()
@@ -26,7 +26,7 @@ class Maze:
         self.path = []
         print(self.__repr__())
         self.entrance = self.cells[0]
-        self.exit = self.cells[len(self.cells) - 1]
+        self.exit = self.cells[-1]
         self.path = self.solve()
         print(self.__repr__())
 
@@ -83,9 +83,9 @@ class Maze:
         A cell is represented with a space if it's not in the path
         or with an hashtag if it's in the path(=solution)."""
         list_solution = []
-        for i in range(self.width):
-            for j in range(self.height):
-                if Cell(j, i, self.width, self.height) in self.path:
+        for j in range(self.height):
+            for i in range(self.width):
+                if Cell(i, j, self.width, self.height) in self.path:
                     list_solution.append("#")
                 else:
                     list_solution.append(" ")
