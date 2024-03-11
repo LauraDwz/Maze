@@ -1,59 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <!-- Partie réservée au chargement de pyscript, permettant d'exécuter du python dans du web. -->
-    <link
-      rel="stylesheet"
-      href="https://pyscript.net/releases/2024.1.1/core.css"
-    />
-    <script
-      type="module"
-      src="https://pyscript.net/releases/2024.1.1/core.js"
-    ></script>
-    <style>
-      #loading {
-        outline: none;
-        border: none;
-        background: transparent;
-      }
-    </style>
-    <script type="module">
-      const loading = document.getElementById("loading");
-      addEventListener("py:ready", () => loading.close());
-      loading.showModal();
-    </script>
-    <!-- Fin du chargement de pyscript. -->
-    <!-- On charge notre css-->
-    <link rel="stylesheet" href="./maze.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maze</title>
+    <script src="maze.js" defer></script>
+    <link rel="stylesheet" href="maze.css" />
   </head>
+
   <body>
-    <section class="pyscript">
-      <h1>Maze</h1>
-      <!-- On charge notre script python -->
-      <script type="py" src="./python/maze.py"></script>
-      <table class="maze">
+    <div id="scores">
+      <h1>Scores</h1>
+      <table id="scoreTable">
         <tr>
-          <td class="case01 entree"></td>
-          <td class="case01"></td>
-          <td class="case10"></td>
-        </tr>
-        <tr>
-          <td class="case00"></td>
-          <td class="case01"></td>
-          <td class="case11"></td>
-        </tr>
-        <tr>
-          <td class="case11 sortie"></td>
-          <td class="case11"></td>
-          <td class="case11"></td>
+          <th>Pseudo</th>
+          <th>Temps</th>
+          <th>Nombre de cellules</th>
+          <th>Nombres de mouvements en trop</th>
         </tr>
       </table>
-      <div id="terminal">
-        <script id="console" type="py" terminal></script>
+    </div>
+
+    <div class="main">
+      <h1 id="gameStatus" class="gameStatus"></h1>
+
+      <div class="center">
+        <div class="gameBoard">
+          <div id="gameDisplay" class="gameDisplay"></div>
+        </div>
+
+        <div id="playing" class="arrows">
+          <button class="fleche up" onclick="move('up')">⬆️</button>
+          <div class="bottomarrow">
+            <button class="fleche" onclick="move('left')">⬅️</button>
+            <button class="fleche" onclick="move('down')">⬇️</button>
+            <button class="fleche" onclick="move('right')">➡️</button>
+          </div>
+        </div>
       </div>
-    </section>
+
+      <div class="bottom">
+        <button class="bottombutton" onclick="modifyPseudo()">
+          Modify Pseudo
+        </button>
+        <button class="bottombutton" onclick="modifySize()">Modify Size</button>
+        <button id="showScore" class="bottombutton" onclick="showScore()">
+          Show Scores
+        </button>
+        <button id="restart" class="bottombutton" onclick="restart()" id="win">
+          Restart
+        </button>
+      </div>
+    </div>
   </body>
 </html>
