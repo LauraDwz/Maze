@@ -111,10 +111,21 @@ class Maze:
         return self.graph.build_path(self.entrance, self.exit, predecessors)
 
 
+def test_maze_generation():
+    maze = Maze(10, 10)
+    assert len(maze.cells) == 100, "Le nombre de cellules n'est pas correct."
+    assert len(maze.walls) == 81, "Le nombre de murs n'est pas correct."
+
+
+def test_path_finding():
+    maze = Maze(10, 10)
+    assert maze.path is not None, "Aucun chemin trouvé entre l'entrée et la sortie."
+
+
 def tests():
     """tests the methods"""
-    maze = Maze(10, 10)
-    assert len(maze.walls) == 81, "There is not the right number of walls. "
+    test_maze_generation()
+    test_path_finding()
 
 
 if __name__ == "__main__":

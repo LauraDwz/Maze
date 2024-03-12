@@ -1,4 +1,4 @@
-import sqlite3
+from outils_sql import modifier
 from maze import Maze
 from cell import Cell
 from time import time
@@ -116,10 +116,7 @@ class Game:
     def has_won(self):
         if self.player == (self.maze.width - 1, self.maze.height - 1):
             elapsed = int(time() - self.start)
-            conn = sqlite3.connect("performances.db")
-            conn.isolation_level = None
-            cur = conn.cursor()
-            cur.execute(
+            modifier(
                 """INSERT INTO resultats (Name, Time, Nb_cells, Move_sup) VALUES (?, ?, ?, ?)""",
                 (
                     self.pseudo,
@@ -128,7 +125,6 @@ class Game:
                     self.number_of_moves - self.mini_move,
                 ),
             )
-            conn.close()
             return (
                 "Vous avez gagné en "
                 + str(elapsed // 60)

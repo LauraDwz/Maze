@@ -37,7 +37,6 @@ def move():
 
 @app.route("/scores", methods=["GET"])
 def scores():
-    print(lire("SELECT * FROM resultats"))
     return jsonify(lire("SELECT * FROM resultats", multiples=True))
 
 
