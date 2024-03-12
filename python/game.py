@@ -116,14 +116,14 @@ class Game:
     def has_won(self):
         if self.player == (self.maze.width - 1, self.maze.height - 1):
             elapsed = int(time() - self.start)
+            score = (
+                len(self.maze.cells)
+                - (self.number_of_moves - self.mini_move)
+                - elapsed // 5
+            )
             modifier(
-                """INSERT INTO resultats (Name, Time, Nb_cells, Move_sup) VALUES (?, ?, ?, ?)""",
-                (
-                    self.pseudo,
-                    elapsed,
-                    self.maze.width * self.maze.height,
-                    self.number_of_moves - self.mini_move,
-                ),
+                """INSERT INTO resultats (Name, Score) VALUES (?, ?)""",
+                (self.pseudo, score),
             )
             return (
                 "Vous avez gagné en "

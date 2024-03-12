@@ -19,6 +19,7 @@ class Graph:
         self.list_of_edges[summit2].append(summit1)
 
     def neighbors(self, summit):
+        """Return the list of neighbors of the submit : the ones the submit is linked to."""
         return self.list_of_edges[summit]
 
     def predecessors(self, source):
