@@ -20,14 +20,15 @@ Projet de terminale. Jeu de labyrinthe
 (Ces éléments seuls se trouvent dans le dossier algo)
 - Création d'un serveur pour jouer au Maze
 - Interface graphique en HTML/CSS/JS avec un joueur qui peut se déplacer (une image)
-- API REST : Single Page Application : tout se fait en une page pour être plus fluide.
+- Affichage de la solution, des scores et possibilité de modifier son pseudo et la taille
+- API REST et Single Page Application : tout se fait en une page pour être plus fluide.
 (Ces éléments se trouvent dans le dossier web)
 - Gestion d'une partie avec la classe Game
 - Création / entretien d'une base de donnée simple qui enregistre les performances des joueurs
-- Tout le backend se trouve dans le dossier python
+(Tout le backend se trouve dans le dossier python)
 
 # Comment exécuter le projet
-- Il faut avoir Flask et flask-cors sur son ordinateurs (à installer avec pip si ils ne sont pas présents)
+- Il faut avoir Flask et flask-cors sur son ordinateurs (à installer avec pip (pip install module) si ils ne sont pas présents)
 - Il faut exécuter l'API pour lancer le serveur
 - Il faut ouvrir maze.html depuis les documents. 
 
