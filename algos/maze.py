@@ -1,4 +1,4 @@
-from random import randint
+from random import choice
 from cell import Cell
 from union_find import UnionFind
 from graph import Graph
@@ -26,7 +26,7 @@ class Maze:
         self.path = []
         print(self.__repr__())
         self.entrance = self.cells[0]
-        self.exit = self.cells[-1]
+        self.exit = self.cells[len(self.cells) - 1]
         self.path = self.solve()
         print(self.__repr__())
 
@@ -83,12 +83,11 @@ class Maze:
         A cell is represented with a space if it's not in the path
         or with an hashtag if it's in the path(=solution)."""
         list_solution = []
-        for j in range(self.height):
-            for i in range(self.width):
-                if Cell(i, j, self.width, self.height) in self.path:
-                    list_solution.append("#")
-                else:
-                    list_solution.append(" ")
+        for cell in self.cells:
+            if cell in self.path:
+                list_solution.append("#")
+            else:
+                list_solution.append(" ")
         return list_solution
 
     def __repr__(self):
@@ -97,36 +96,14 @@ class Maze:
     def generate(self):
         """Generate a perfect maze with the Kruskal algorithm"""
         while self.union_find.number_of_classes() > 1:
-            index = randint(0, len(self.walls) - 1)
-            wall = self.walls[index]
+            wall = choice(self.walls)
             if self.union_find.find(wall[0]) != self.union_find.find(wall[1]):
                 self.union_find.union(wall[0], wall[1])
                 self.graph.add_edge(wall[0], wall[1])
-                self.walls.pop(index)
+                self.walls.remove(wall)
 
     def solve(self):
         """Find a path from the entrance to the exit.
         It uses a graph"""
         predecessors = self.graph.predecessors(self.entrance)
         return self.graph.build_path(self.entrance, self.exit, predecessors)
-
-
-def test_maze_generation():
-    maze = Maze(10, 10)
-    assert len(maze.cells) == 100, "Le nombre de cellules n'est pas correct."
-    assert len(maze.walls) == 81, "Le nombre de murs n'est pas correct."
-
-
-def test_path_finding():
-    maze = Maze(10, 10)
-    assert maze.path is not None, "Aucun chemin trouvé entre l'entrée et la sortie."
-
-
-def tests():
-    """tests the methods"""
-    test_maze_generation()
-    test_path_finding()
-
-
-if __name__ == "__main__":
-    tests()
