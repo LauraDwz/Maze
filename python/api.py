@@ -6,7 +6,7 @@ from outils_sql import modifier, lire
 creation_sql = """CREATE TABLE IF NOT EXISTS results (
 	"ID"	INTEGER,
 	"Name"	TEXT,
-	"Score"  INTEGER
+	"Score"  INTEGER, 
 	PRIMARY KEY("ID" AUTOINCREMENT)
 );"""
 
@@ -42,4 +42,4 @@ def restart():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001)

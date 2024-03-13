@@ -21,6 +21,9 @@ class Game:
         C : Il n'y a pas de murs à droite et un en dessous
         D : Il y a deux murs"""
         cells = ""
+        solution = ""
+        for cell in self.maze.path:
+            solution += str(cell.i) + "," + str(cell.j) + ";"
         for cell in self.maze.cells:
             if cell.j == self.maze.height - 1:
                 if cell.i == self.maze.width - 1:
@@ -67,10 +70,11 @@ class Game:
                     cells += "D"
 
         return {
-            "laby": cells,
+            "maze": cells,
             "pos_player": self.player,
-            "taille": self.maze.width,
+            "size": self.maze.width,
             "state": self.has_won(),
+            "solution": solution,
         }
 
     def move(self, direction: str):
@@ -122,21 +126,21 @@ class Game:
                 - elapsed // 5
             )
             modifier(
-                """INSERT INTO resultats (Name, Score) VALUES (?, ?)""",
+                """INSERT INTO results (Name, Score) VALUES (?, ?)""",
                 (self.pseudo, score),
             )
             return (
-                "Vous avez gagné en "
+                "You have won in "
                 + str(elapsed // 60)
-                + " minutes et "
+                + " minutes and "
                 + str(elapsed % 60)
-                + " secondes !\nVotre nombre de mouvements était de "
+                + " seconds !\n Your number of move was "
                 + str(self.number_of_moves)
-                + " alors que le nombre minimal était de "
+                + " while the minimal was "
                 + str(self.mini_move)
                 + " !"
             )
-        return "Continuer à jouer !"
+        return "Keep playing"
 
     def restart(self, pseudo: str, width: str, height: str):
         if (width != "" or height != "") and width.isnumeric() and height.isnumeric():
