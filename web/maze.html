@@ -12,11 +12,7 @@
 <body>
   <div id="scores">
     <h1>Scores</h1>
-    <table id="scoreTable">
-      <tr>
-        <th>Pseudo</th>
-        <th>Score
-      </tr>
+    <table id="scoreTable" class="table_score">
     </table>
   </div>
 
@@ -45,6 +41,9 @@
       <button class="bottombutton" onclick="modifySize()">Modify Size</button>
       <button id="showScore" class="bottombutton" onclick="showScore()">
         Show Scores
+      </button>
+      <button id="showSolution" class="bottombutton" onclick="showSolution()">
+        Show/Hide Solution
       </button>
       <button id="restart" class="bottombutton" onclick="restart()" id="win">
         Restart
