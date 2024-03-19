@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from game import Game
 from outils_sql import modifier, lire
@@ -16,6 +16,11 @@ app = Flask(__name__)
 CORS(app)
 
 game = Game(3, 3)
+
+
+@app.route("/", methods=["GET"])
+def index():
+    return render_template("maze.html")
 
 
 @app.route("/display", methods=["GET"])

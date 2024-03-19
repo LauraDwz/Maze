@@ -1,0 +1,151 @@
+.main {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+h1 {
+    text-align: center;
+    color: #00a6ed;
+}
+
+.table_score {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    min-width: 500px;
+}
+
+.th_score {
+    border: 4px solid black;
+    padding: 10px;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.td_score {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+    font-size: x-large;
+}
+
+
+.arrows {
+    margin-left: 10%;
+}
+
+.fleche {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 10em;
+}
+
+.bottombutton {
+    padding: 2% 5%;
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    background-color: #00a6ed;
+    border: 2px solid #00a6ed;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10%;
+    min-height: 110px;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.caseD {
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.caseB {
+    border-right: 2px solid black;
+}
+
+.caseC {
+    border-bottom: 2px solid black;
+}
+
+.gameDisplay {
+    width: 700px;
+    height: 700px;
+    font-size: 0;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+}
+
+.caseA,
+.caseB,
+.caseC,
+.caseD {
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.player {
+    background-image: url('player.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top;
+    margin-top: auto;
+}
+
+.end {
+    background-image: url('end.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top;
+    margin-top: auto;
+}
+
+.solution {
+    background-color: #00a6ed;
+}
+
+.up {
+    display: flex;
+    align-items: center;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bottomarrow {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gameBoard {
+    text-align: center;
+    flex-direction: column;
+}
+
+.gameStatus {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+}
